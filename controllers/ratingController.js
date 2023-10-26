@@ -30,7 +30,7 @@ export const giveRating = async (req, res, next) => {
     const totalRating = ratings.reduce((sum, r) => sum + r.rating, 0);
     const averageRating = ratings.length > 0 ? totalRating / ratings.length : 0;
 
-    const roundedAverageRating = averageRating.toFixed(2);
+    const roundedAverageRating = averageRating.toFixed(1);
 
     await prisma.recipes.update({
       where: { id: req.params.recipeID },
