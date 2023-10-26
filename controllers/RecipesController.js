@@ -51,8 +51,15 @@ export const searchRecipe = async (req, res) => {
     const response = await prisma.recipes.findMany({
       where: {
         recipe_name: {
-          contains: req.params.recipeName,
+          contains: String(req.params.name),
           mode: "insensitive",
+        },
+      },
+      include: {
+        user: {
+          select: {
+            username: true,
+          },
         },
       },
     });
