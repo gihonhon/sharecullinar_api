@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get("/recipes", getAllRecipe);
 router.get("/recipes/:id", getRecipe);
-router.get("/recipes/:name", searchRecipe);
+router.get("/search/recipes/:name", searchRecipe);
 router.post("/recipes", cerateRecipe);
 router.patch("/recipes/:id", updateRecipe);
 router.delete("/recipes/:id", deleteRecipe);
