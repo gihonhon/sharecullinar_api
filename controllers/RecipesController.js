@@ -45,6 +45,23 @@ export const getRecipe = async (req, res) => {
   }
 };
 
+//* Search Recipe
+export const searchRecipe = async (req, res) => {
+  try {
+    const response = await prisma.recipes.findMany({
+      where: {
+        recipe_name: {
+          contains: req.params.recipe,
+          mode: "insensitive",
+        },
+      },
+    });
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
+};
+
 //* Create Recipe
 export const cerateRecipe = async (req, res) => {
   const {
