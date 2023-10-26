@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "regions": ["sin1"],
     "builds": [
       {
         "src": "./index.js",
@@ -11,6 +12,5 @@
         "src": "/(.*)",
         "dest": "/"
       }
-    ],
-    "regions": ["sin1"]
+    ]
 }
