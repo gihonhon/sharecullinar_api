@@ -8,6 +8,11 @@ export const getAllRecipe = async (req, res) => {
     const response = await prisma.recipes.findMany({
       include: {
         category: true,
+        user: {
+          select: {
+            username: true,
+          },
+        },
       },
     });
     res.status(200).json(response);
