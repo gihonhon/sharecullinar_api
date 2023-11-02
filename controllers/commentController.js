@@ -33,7 +33,7 @@ export const getAllComments = async (req, res, next) => {
 export const getComment = async (req, res, next) => {
   try {
     const response = await prisma.comments.findMany({
-      where: { recipeID: req.paras.id },
+      where: { recipeID: req.params.id },
       select: {
         id: true,
         userID: true,
