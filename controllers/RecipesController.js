@@ -66,6 +66,7 @@ export const searchRecipe = async (req, res) => {
             username: true,
           },
         },
+        comments: true,
       },
     });
     res.status(200).json(response);
