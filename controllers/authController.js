@@ -15,6 +15,7 @@ export const signup = async (req, res, next) => {
         username,
         email,
         password: hashedPassword,
+        image: `https://ui-avatars.com/api/?name=${username}?size=512?format=png`,
       },
     });
     const token = generateToken(newUser);

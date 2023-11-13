@@ -6,6 +6,12 @@ const prisma = new PrismaClient();
 export const addBookmark = async (req, res, next) => {
   const { userID, recipeID } = req.body;
   try {
+    const existingBookmark = await prisma.bookmarks.findUnique({
+      where: { userID_recipeID: { userID, recipeID } },
+    });
+    if (existingBookmark) {
+      return res.status(400).json({ error: "Bookmark already exists" });
+    }
     const newBookmark = await prisma.bookmarks.create({
       data: {
         userID,

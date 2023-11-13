@@ -151,7 +151,7 @@ export const updateRecipe = async (req, res) => {
   }
 };
 
-//! Delete Recipe
+// Delete Recipe
 export const deleteRecipe = async (req, res) => {
   try {
     const recipe = await prisma.recipes.delete({

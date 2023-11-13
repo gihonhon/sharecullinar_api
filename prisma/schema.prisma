@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -67,6 +68,8 @@ model Bookmarks {
   createdAt DateTime @default(now())
   recipe    Recipes  @relation("BookmarkToRecipes", fields: [recipeID], references: [id])
   user      User     @relation("UserToBookmarks", fields: [userID], references: [id])
+
+  @@unique([userID, recipeID])
 }
 
 model Recipes {
