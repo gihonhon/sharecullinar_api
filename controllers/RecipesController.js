@@ -14,6 +14,9 @@ export const getAllRecipe = async (req, res) => {
           },
         },
       },
+      orderBy: {
+        createdAt: "asc",
+      },
     });
     res.status(200).json(response);
   } catch (error) {
