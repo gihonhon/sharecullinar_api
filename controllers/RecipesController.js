@@ -15,7 +15,7 @@ export const getAllRecipe = async (req, res) => {
         },
       },
       orderBy: {
-        createdAt: "asc",
+        createdAt: "desc",
       },
     });
     res.status(200).json(response);
